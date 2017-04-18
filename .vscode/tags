@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DecisionTreeClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.tree import DecisionTreeClassifier, export_graphviz$/;"	kind:namespace	line:6
+RandomizedSearchCV	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import RandomizedSearchCV$/;"	kind:namespace	line:10
+StringIO	../evaluate_sklearn_classifier.py	/^from sklearn.externals.six import StringIO$/;"	kind:namespace	line:8
+__labels__	../evaluate_sklearn_classifier.py	/^__labels__ = [$/;"	kind:variable	line:16
+auc	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:9
+classification_report	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:9
+confusion_matrix	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:9
+evaluate_classifier	../evaluate_sklearn_classifier.py	/^def evaluate_classifier(clf, clf_name, number_of_top_features=5, fscore_beta=1.0):$/;"	kind:function	line:45
+evaluate_sklearn_classifier.py	../evaluate_sklearn_classifier.py	1;"	kind:file	line:1
+export_graphviz	../evaluate_sklearn_classifier.py	/^from sklearn.tree import DecisionTreeClassifier, export_graphviz$/;"	kind:namespace	line:6
+load_data	../evaluate_sklearn_classifier.py	/^from load_data import load_data$/;"	kind:namespace	line:14
+matplotlib	../evaluate_sklearn_classifier.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:12
+np	../evaluate_sklearn_classifier.py	/^import numpy as np$/;"	kind:namespace	line:7
+operator	../evaluate_sklearn_classifier.py	/^import operator$/;"	kind:namespace	line:4
+plot_it	../evaluate_sklearn_classifier.py	/^def plot_it(clf_name, fpr, tpr, fscore_beta):$/;"	kind:function	line:26
+plt	../evaluate_sklearn_classifier.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:12
+precision_recall_fscore_support	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:9
+pydot_ng	../evaluate_sklearn_classifier.py	/^import pydot_ng$/;"	kind:namespace	line:11
+roc_curve	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:9
+top_n_features	../evaluate_sklearn_classifier.py	/^def top_n_features(number, weights):$/;"	kind:function	line:40
