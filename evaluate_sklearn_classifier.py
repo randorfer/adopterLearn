@@ -1,78 +1,91 @@
-'''
-train based on a decision tree
-'''
-import operator
-
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
+#%%
+from __future__ import print_function
+import pandas as pd
 import numpy as np
-from sklearn.externals.six import StringIO
+import time
+from pprint import pprint
+from time import time
+import logging
+
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.feature_selection import SelectKBest
+from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import robust_scale
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report
-from sklearn.model_selection import RandomizedSearchCV
-import pydot_ng
-import matplotlib.pyplot as plt
+from sklearn.svm import SVC
+from sklearn.cross_validation import StratifiedKFold
+train = pd.read_csv("data/train.csv")
+score = pd.read_csv("data/score.csv")
+score = score.fillna(method='ffill')
+train = train.fillna(method='ffill')
 
-from load_data import load_data
+X = train.values[:,3:]
+y = train.values[:,2]
+user_id = score.values[:,1]
+X_score = score.values[:,2:]
 
-__labels__ = [
-    "make", "address", "all", "3d", "our", "over", "remove", "internet",
-    "order", "mail", "receive", "will", "people", "report", "addresses",
-    "free", "business", "email", "you", "credit", "your", "font", "000",
-    "money", "hp", "hpl", "george", "650", "lab", "labs", "telnet", "857",
-    "data", "415", "85", "technology", "1999", "parts", "pm", "direct", "cs",
-    "meeting", "original", "project", "re", "edu", "table", "conference", ";",
-    "(", "[", "!", "$", "#", "avg_capital_run_length", "longest_capital_run_length",
-    "total_capital_run_length"
-]
-def plot_it(clf_name, fpr, tpr, fscore_beta):
-    lw=2
-    plt.figure()
-    roc_auc = auc(fpr, tpr)
-    plt.plot(fpr, tpr, color='darkorange',
-             lw=lw, label='%s ROC curve (area = %0.2f)' % (clf_name, roc_auc))
-    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('Receiver operating characteristic example')
-    plt.legend(loc="lower right")
-    plt.savefig('ROC_Curve/%s-%s.png' % (clf_name, fscore_beta))
-def top_n_features(number, weights):
-    '''
-    docstring
-    '''
-    return sorted(zip(__labels__, weights), reverse=True, key=operator.itemgetter(1))[:number]
-def evaluate_classifier(clf, clf_name, number_of_top_features=5, fscore_beta=1.0):
-    '''
-    docstring
-    '''
-    X_train, X_test, y_train, y_test = load_data(train=True, test_size=0.4)
-    #clf=tune(clf,X_train, y_train, tuned_parameters)
-    clf.fit(X_train, y_train)
-    score = clf.score(X_test, y_test)
-    
-    if hasattr(clf, "predict_proba"):
-        false_positive_rate, true_positive_rate, _ = roc_curve(
-            y_test, clf.predict_proba(X_test)[:, 1]
-        )
-        roc_auc = auc(false_positive_rate, true_positive_rate)
-        plot_it(clf_name, false_positive_rate, true_positive_rate, fscore_beta)
-    else:
-        false_positive_rate, true_positive_rate, _ = roc_curve(
-            y_test, clf.decision_function(X_test)
-        )
-        roc_auc = auc(false_positive_rate, true_positive_rate)
-        plot_it(clf_name, false_positive_rate, true_positive_rate, fscore_beta)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.1
+)
 
-    y_pred = clf.predict(X_test)
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    class_report = classification_report(y_test,y_pred)
-    precision, recall, fbeta_score, support = precision_recall_fscore_support(
-        y_true=y_test, y_pred=y_pred,beta=fscore_beta, labels=1, average='binary'
-    )
-    if hasattr(clf, "feature_importances_"):
-        top_features = top_n_features(number=number_of_top_features, weights=clf.feature_importances_)
-    else:
-        top_features = (-1,-1)
+# Display progress logs on stdout
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(levelname)s %(message)s')
 
-    return score, roc_auc, top_features, conf_matrix, precision, recall, fbeta_score, support, class_report
+pipeline = Pipeline([
+    ('scaler', RobustScaler()),
+    ('feature_selection', SelectKBest()),
+    ('clf', SVC(class_weight='balanced')),
+])
+# uncommenting more parameters will give better exploring power but will
+# increase processing time in a combinatorial way
+parameters = {
+    'feature_selection__k': (5, 10, 15, 20),
+    'clf__alpha': (0.00001, 0.000001),
+    'clf__penalty': ('l2', 'elasticnet')
+}
+
+param_grid = dict(
+    clf__degree=(1,2,3,4),
+    clf__kernel=('linear','poly'),
+    clf__decision_function_shape=('ovo','ovr')
+)
+
+grid_search = GridSearchCV(pipeline, param_grid, n_jobs=-1, verbose=1)
+
+print("Performing grid search...")
+print("pipeline:", [name for name, _ in pipeline.steps])
+print("parameters:")
+pprint(parameters)
+t0 = time()
+grid_search.fit(X,y)
+print("done in %0.3fs" % (time() - t0))
+print()
+
+print("Best score: %0.3f" % grid_search.best_score_)
+print("Best parameters set:")
+best_parameters = grid_search.best_estimator_.get_params()
+for param_name in sorted(parameters.keys()):
+    print("\t%s: %r" % (param_name, best_parameters[param_name]))
+
+
+y_pred = grid_search.best_estimator_.predict(X_test)
+precision, recall, fbeta_score, support = precision_recall_fscore_support(
+    y_true=y_test, y_pred=y_pred, labels=1, average='binary'
+)
+print("Precision:{0} Recall:{1}, FScore:{2}").format(precision, recall, fbeta_score)
+pprint(confusion_matrix(y_test,y_pred))
+
+
+predictions = grid_search.best_estimator_.predict(X_score)
+timestr = time.strftime()
+file_name = "{0}-{1}.csv".format("results",timestr)
+with open(file_name, 'w') as csvfile:
+    csvfile.write("user_id,prediction(adopter)\n")
+    i=0
+    for prediction in predictions:
+        csvfile.write("%s,%d\n" % (user_id[i],prediction))
+        i += 1
