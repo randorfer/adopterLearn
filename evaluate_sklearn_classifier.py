@@ -20,6 +20,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.feature_selection import chi2
 from sklearn.svm import LinearSVC
+from sklearn.ensemble import BaggingClassifier
+from sklearn.multiclass import OneVsRestClassifier
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
 score = score.fillna(method='ffill')
@@ -38,37 +40,81 @@ X_train, X_test, y_train, y_test = train_test_split(
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(message)s')
 
-
 # uncommenting more parameters will give better exploring power but will
 # increase processing time in a combinatorial way
+n_estimators = 15
 pipeline = Pipeline([
     ('scaler', RobustScaler()),
     ('feature_selection', SelectKBest()),
-    ('clf', LinearSVC(class_weight='balanced'))
+    ('clf', OneVsRestClassifier(
+        BaggingClassifier(
+            SVC(
+                probability=True, 
+                class_weight='balanced'),
+            max_samples=1.0 / n_estimators, 
+            n_estimators=n_estimators
+        )
+    ))
 ])
 
-C_start, C_end, C_step = -3, 15, 2
-C_val = 2. ** np.arange(C_start, C_end + C_step, C_step)
-
 parameters = {
-    'feature_selection__k': (15, 20, 25),
-    'clf__C': C_val
+    'feature_selection__k': (3,8,12,15,18,20),
+    'clf__estimator__base_estimator__C': (1,10,100,1000),
+    'clf__estimator__base_estimator__kernel': ('linear', 'poly', 'rbf')
 }
-'''
+
+grid_search = GridSearchCV(
+    pipeline,
+    parameters,
+    n_jobs=-1,
+    verbose=1,
+    cv=5
+)
+
+print("Performing grid search...")
+print("pipeline:", [name for name, _ in pipeline.steps])
+print("parameters:")
+pprint(parameters)
+t0 = time.time()
+grid_search.fit(X,y)
+print("done in %0.3fs" % (time.time() - t0))
+print()
+
+print("Best score: %0.3f" % grid_search.best_score_)
+print("Best parameters set:")
+best_parameters = grid_search.best_estimator_.get_params()
+for param_name in sorted(parameters.keys()):
+    print("\t%s: %r" % (param_name, best_parameters[param_name]))
+
+
+y_pred = grid_search.best_estimator_.predict(X_test)
+precision, recall, fbeta_score, support = precision_recall_fscore_support(
+    y_true=y_test, y_pred=y_pred, labels=1, average='binary'
+)
+print(fbeta_score)
+pprint(confusion_matrix(y_test,y_pred))
+
+predictions = grid_search.best_estimator_.predict(X_score)
+timestr = time.strftime("%Y%m%d-%H%M%S") 
+file_name = "output/{0}-{1}.csv".format("svc",timestr)
+with open(file_name, 'w') as csvfile:
+    csvfile.write("user_id,prediction(adopter)\n")
+    i=0
+    for prediction in predictions:
+        csvfile.write("%s,%d\n" % (user_id[i],prediction))
+        i += 1
+
 pipeline = Pipeline([
     ('scaler', RobustScaler()),
-    ('clf', RandomForestClassifier(
-                class_weight={1:.9,0:.1}, 
-                max_depth=9
-            ))
+    ('clf', MLPClassifier(random_state=42))
 ])
+
 parameters = {
-    'clf__max_features': ('sqrt','log2'),
-    'clf__criterion': ('gini','entropy'),
-    'clf__n_estimators': (5,10),
-    'clf__oob_score': (True, False)
+    'clf__solver': ('lbfgs', 'adam'),
+    'clf__alpha': (0.0001,0.000001,0.000000001),
+    'early_stopping': (True, False)
 }
-'''
+
 grid_search = GridSearchCV(
     pipeline,
     parameters,
@@ -102,10 +148,11 @@ pprint(confusion_matrix(y_test,y_pred))
 
 predictions = grid_search.best_estimator_.predict(X_score)
 timestr = time.strftime("%Y%m%d-%H%M%S") 
-file_name = "output/{0}-{1}.csv".format("results",timestr)
+file_name = "output/{0}-{1}.csv".format("mlp",timestr)
 with open(file_name, 'w') as csvfile:
     csvfile.write("user_id,prediction(adopter)\n")
     i=0
     for prediction in predictions:
         csvfile.write("%s,%d\n" % (user_id[i],prediction))
         i += 1
+

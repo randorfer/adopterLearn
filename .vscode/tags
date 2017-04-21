@@ -4,51 +4,58 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+BaggingClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import BaggingClassifier$/;"	kind:namespace	line:23
 GridSearchCV	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import GridSearchCV$/;"	kind:namespace	line:10
+LinearSVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import LinearSVC$/;"	kind:namespace	line:22
+OneVsRestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.multiclass import OneVsRestClassifier$/;"	kind:namespace	line:24
 Pipeline	../evaluate_sklearn_classifier.py	/^from sklearn.pipeline import Pipeline$/;"	kind:namespace	line:11
-RandomForestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:18
+RandomForestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:19
 RobustScaler	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import RobustScaler$/;"	kind:namespace	line:13
 SGDClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.linear_model import SGDClassifier$/;"	kind:namespace	line:9
-SVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:17
+SVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:18
 SelectKBest	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import SelectKBest$/;"	kind:namespace	line:12
-StratifiedKFold	../evaluate_sklearn_classifier.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:19
-X	../evaluate_sklearn_classifier.py	/^X = train.values[:,3:]$/;"	kind:variable	line:25
-X_score	../evaluate_sklearn_classifier.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:28
+StratifiedKFold	../evaluate_sklearn_classifier.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:20
+X	../evaluate_sklearn_classifier.py	/^X = train.values[:,3:]$/;"	kind:variable	line:30
+X_score	../evaluate_sklearn_classifier.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:33
 auc	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-best_parameters	../evaluate_sklearn_classifier.py	/^best_parameters = grid_search.best_estimator_.get_params()$/;"	kind:variable	line:70
-class_weight	../evaluate_sklearn_classifier.py	/^        class_weight='balanced', $/;"	kind:variable	line:86
+best_parameters	../evaluate_sklearn_classifier.py	/^best_parameters = grid_search.best_estimator_.get_params()$/;"	kind:variable	line:100
+chi2	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import chi2$/;"	kind:namespace	line:21
+class_weight	../evaluate_sklearn_classifier.py	/^                class_weight='balanced'),$/;"	kind:variable	line:55
 classification_report	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-classifier	../evaluate_sklearn_classifier.py	/^classifier = Pipeline([$/;"	kind:variable	line:82
 confusion_matrix	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-criterion	../evaluate_sklearn_classifier.py	/^        criterion='gini',$/;"	kind:variable	line:88
+cv	../evaluate_sklearn_classifier.py	/^    cv=3$/;"	kind:variable	line:86
 evaluate_sklearn_classifier.py	../evaluate_sklearn_classifier.py	1;"	kind:file	line:1
-file_name	../evaluate_sklearn_classifier.py	/^file_name = "output\/{0}-{1}.csv".format("results",timestr)$/;"	kind:variable	line:97
-format	../evaluate_sklearn_classifier.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	kind:variable	line:36
-grid_search	../evaluate_sklearn_classifier.py	/^grid_search = GridSearchCV(pipeline, param_grid, n_jobs=-1, verbose=1)$/;"	kind:variable	line:57
-i	../evaluate_sklearn_classifier.py	/^    i=0$/;"	kind:variable	line:100
+f1_score	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import f1_score$/;"	kind:namespace	line:17
+file_name	../evaluate_sklearn_classifier.py	/^file_name = "output\/{0}-{1}.csv".format("results",timestr)$/;"	kind:variable	line:114
+format	../evaluate_sklearn_classifier.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	kind:variable	line:41
+grid_search	../evaluate_sklearn_classifier.py	/^grid_search = GridSearchCV($/;"	kind:variable	line:81
+i	../evaluate_sklearn_classifier.py	/^    i=0$/;"	kind:variable	line:117
+kernel	../evaluate_sklearn_classifier.py	/^                kernel = 'poly',$/;"	kind:variable	line:53
 logging	../evaluate_sklearn_classifier.py	/^import logging$/;"	kind:namespace	line:7
-max_features	../evaluate_sklearn_classifier.py	/^        max_features='sqrt',$/;"	kind:variable	line:89
-n_estimators	../evaluate_sklearn_classifier.py	/^        n_estimators=10$/;"	kind:variable	line:90
-n_jobs	../evaluate_sklearn_classifier.py	/^        n_jobs=-1,$/;"	kind:variable	line:87
+max_samples	../evaluate_sklearn_classifier.py	/^            max_samples=1.0 \/ n_estimators, $/;"	kind:variable	line:56
+n_estimators	../evaluate_sklearn_classifier.py	/^            n_estimators=n_estimators$/;"	kind:variable	line:57
+n_estimators	../evaluate_sklearn_classifier.py	/^n_estimators = 15$/;"	kind:variable	line:46
+n_jobs	../evaluate_sklearn_classifier.py	/^    n_jobs=-1,$/;"	kind:variable	line:84
 np	../evaluate_sklearn_classifier.py	/^import numpy as np$/;"	kind:namespace	line:4
-param_grid	../evaluate_sklearn_classifier.py	/^param_grid = { $/;"	kind:variable	line:51
-parameters	../evaluate_sklearn_classifier.py	/^parameters = {$/;"	kind:variable	line:45
+parameters	../evaluate_sklearn_classifier.py	/^parameters = {$/;"	kind:variable	line:62
 pd	../evaluate_sklearn_classifier.py	/^import pandas as pd$/;"	kind:namespace	line:3
-pipeline	../evaluate_sklearn_classifier.py	/^pipeline = Pipeline([$/;"	kind:variable	line:38
+pipeline	../evaluate_sklearn_classifier.py	/^pipeline = Pipeline([$/;"	kind:variable	line:47
 pprint	../evaluate_sklearn_classifier.py	/^from pprint import pprint$/;"	kind:namespace	line:6
 precision_recall_fscore_support	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-predictions	../evaluate_sklearn_classifier.py	/^predictions = classifier.predict(X_score)$/;"	kind:variable	line:95
+predictions	../evaluate_sklearn_classifier.py	/^predictions = grid_search.best_estimator_.predict(X_score)$/;"	kind:variable	line:112
 print_function	../evaluate_sklearn_classifier.py	/^from __future__ import print_function$/;"	kind:namespace	line:2
+probability	../evaluate_sklearn_classifier.py	/^                probability=True, $/;"	kind:variable	line:54
 robust_scale	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import robust_scale$/;"	kind:namespace	line:14
 roc_curve	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-score	../evaluate_sklearn_classifier.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:21
-score	../evaluate_sklearn_classifier.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:22
-t0	../evaluate_sklearn_classifier.py	/^t0 = time.time()$/;"	kind:variable	line:63
+score	../evaluate_sklearn_classifier.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:26
+score	../evaluate_sklearn_classifier.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:27
+t0	../evaluate_sklearn_classifier.py	/^t0 = time.time()$/;"	kind:variable	line:93
 time	../evaluate_sklearn_classifier.py	/^import time$/;"	kind:namespace	line:5
-timestr	../evaluate_sklearn_classifier.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:96
-train	../evaluate_sklearn_classifier.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:20
-train	../evaluate_sklearn_classifier.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:23
+timestr	../evaluate_sklearn_classifier.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:113
+train	../evaluate_sklearn_classifier.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:25
+train	../evaluate_sklearn_classifier.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:28
 train_test_split	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:15
-user_id	../evaluate_sklearn_classifier.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:27
-y	../evaluate_sklearn_classifier.py	/^y = train.values[:,2]$/;"	kind:variable	line:26
-y_pred	../evaluate_sklearn_classifier.py	/^y_pred = grid_search.best_estimator_.predict(X_test)$/;"	kind:variable	line:75
+user_id	../evaluate_sklearn_classifier.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:32
+verbose	../evaluate_sklearn_classifier.py	/^    verbose=1,$/;"	kind:variable	line:85
+y	../evaluate_sklearn_classifier.py	/^y = train.values[:,2]$/;"	kind:variable	line:31
+y_pred	../evaluate_sklearn_classifier.py	/^y_pred = grid_search.best_estimator_.predict(X_test)$/;"	kind:variable	line:105
