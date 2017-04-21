@@ -14,10 +14,12 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.preprocessing import robust_scale
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report
+from sklearn.metrics import f1_score
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.feature_selection import chi2
+from sklearn.svm import LinearSVC
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
 score = score.fillna(method='ffill')
@@ -42,11 +44,15 @@ logging.basicConfig(level=logging.INFO,
 pipeline = Pipeline([
     ('scaler', RobustScaler()),
     ('feature_selection', SelectKBest()),
-    ('clf', SVC())
+    ('clf', LinearSVC(class_weight='balanced'))
 ])
+
+C_start, C_end, C_step = -3, 15, 2
+C_val = 2. ** np.arange(C_start, C_end + C_step, C_step)
+
 parameters = {
-    'feature_selection__k': (5, 10, 15, 20),
-    'clf__kernel': ('linear','rbf')
+    'feature_selection__k': (15, 20, 25),
+    'clf__C': C_val
 }
 '''
 pipeline = Pipeline([
