@@ -74,7 +74,7 @@ grid_search = GridSearchCV(
     parameters,
     n_jobs=-1,
     verbose=1,
-    cv=5
+    cv=3
 )
 
 print("Performing grid search...")
