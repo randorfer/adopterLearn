@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import time
 from pprint import pprint
-from time import time
 import logging
 
 from sklearn.linear_model import SGDClassifier
@@ -16,7 +15,9 @@ from sklearn.preprocessing import robust_scale
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report
 from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import StratifiedKFold
+from sklearn.feature_selection import chi2
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
 score = score.fillna(method='ffill')
@@ -28,41 +29,55 @@ user_id = score.values[:,1]
 X_score = score.values[:,2:]
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.1
+    X, y, test_size=0.5
 )
 
 # Display progress logs on stdout
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(message)s')
 
+
+# uncommenting more parameters will give better exploring power but will
+# increase processing time in a combinatorial way
 pipeline = Pipeline([
     ('scaler', RobustScaler()),
     ('feature_selection', SelectKBest()),
-    ('clf', SVC(class_weight='balanced')),
+    ('clf', SVC())
 ])
-# uncommenting more parameters will give better exploring power but will
-# increase processing time in a combinatorial way
 parameters = {
     'feature_selection__k': (5, 10, 15, 20),
-    'clf__alpha': (0.00001, 0.000001),
-    'clf__penalty': ('l2', 'elasticnet')
+    'clf__kernel': ('linear','rbf')
 }
-
-param_grid = dict(
-    clf__degree=(1,2,3,4),
-    clf__kernel=('linear','poly'),
-    clf__decision_function_shape=('ovo','ovr')
+'''
+pipeline = Pipeline([
+    ('scaler', RobustScaler()),
+    ('clf', RandomForestClassifier(
+                class_weight={1:.9,0:.1}, 
+                max_depth=9
+            ))
+])
+parameters = {
+    'clf__max_features': ('sqrt','log2'),
+    'clf__criterion': ('gini','entropy'),
+    'clf__n_estimators': (5,10),
+    'clf__oob_score': (True, False)
+}
+'''
+grid_search = GridSearchCV(
+    pipeline,
+    parameters,
+    n_jobs=-1,
+    verbose=1,
+    cv=5
 )
-
-grid_search = GridSearchCV(pipeline, param_grid, n_jobs=-1, verbose=1)
 
 print("Performing grid search...")
 print("pipeline:", [name for name, _ in pipeline.steps])
 print("parameters:")
 pprint(parameters)
-t0 = time()
+t0 = time.time()
 grid_search.fit(X,y)
-print("done in %0.3fs" % (time() - t0))
+print("done in %0.3fs" % (time.time() - t0))
 print()
 
 print("Best score: %0.3f" % grid_search.best_score_)
@@ -76,13 +91,12 @@ y_pred = grid_search.best_estimator_.predict(X_test)
 precision, recall, fbeta_score, support = precision_recall_fscore_support(
     y_true=y_test, y_pred=y_pred, labels=1, average='binary'
 )
-print("Precision:{0} Recall:{1}, FScore:{2}").format(precision, recall, fbeta_score)
+print(fbeta_score)
 pprint(confusion_matrix(y_test,y_pred))
 
-
 predictions = grid_search.best_estimator_.predict(X_score)
-timestr = time.strftime()
-file_name = "{0}-{1}.csv".format("results",timestr)
+timestr = time.strftime("%Y%m%d-%H%M%S") 
+file_name = "output/{0}-{1}.csv".format("results",timestr)
 with open(file_name, 'w') as csvfile:
     csvfile.write("user_id,prediction(adopter)\n")
     i=0
