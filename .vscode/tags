@@ -4,58 +4,179 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-BaggingClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import BaggingClassifier$/;"	kind:namespace	line:23
+BaggingClassifier	../BernoulliNB.py	/^from sklearn.ensemble import BaggingClassifier$/;"	kind:namespace	line:27
+BaggingClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import BaggingClassifier$/;"	kind:namespace	line:27
+BaggingClassifier	../tpot_base.py	/^from sklearn.ensemble import BaggingClassifier$/;"	kind:namespace	line:26
+BernoulliNB	../BernoulliNB.py	/^from sklearn.naive_bayes import BernoulliNB$/;"	kind:namespace	line:31
+BernoulliNB	../evaluate_sklearn_classifier.py	/^from sklearn.naive_bayes import BernoulliNB$/;"	kind:namespace	line:31
+BernoulliNB	../tpot_exported_pipeline-1.py	/^from sklearn.naive_bayes import BernoulliNB$/;"	kind:namespace	line:4
+BernoulliNB.py	../BernoulliNB.py	1;"	kind:file	line:1
+FeatureUnion	../BernoulliNB.py	/^from sklearn.pipeline import FeatureUnion$/;"	kind:namespace	line:30
+FeatureUnion	../evaluate_sklearn_classifier.py	/^from sklearn.pipeline import FeatureUnion$/;"	kind:namespace	line:30
+FeatureUnion	../tpot_base.py	/^from sklearn.pipeline import FeatureUnion$/;"	kind:namespace	line:29
+GridSearchCV	../BernoulliNB.py	/^from sklearn.model_selection import GridSearchCV$/;"	kind:namespace	line:10
 GridSearchCV	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import GridSearchCV$/;"	kind:namespace	line:10
-LinearSVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import LinearSVC$/;"	kind:namespace	line:22
-OneVsRestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.multiclass import OneVsRestClassifier$/;"	kind:namespace	line:24
+GridSearchCV	../tpot_base.py	/^from sklearn.model_selection import GridSearchCV$/;"	kind:namespace	line:10
+LinearSVC	../BernoulliNB.py	/^from sklearn.svm import LinearSVC $/;"	kind:namespace	line:22
+LinearSVC	../BernoulliNB.py	/^from sklearn.svm import LinearSVC$/;"	kind:namespace	line:26
+LinearSVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import LinearSVC $/;"	kind:namespace	line:22
+LinearSVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import LinearSVC$/;"	kind:namespace	line:26
+LinearSVC	../tpot_base.py	/^from sklearn.svm import LinearSVC$/;"	kind:namespace	line:25
+MaxAbsScaler	../BernoulliNB.py	/^from sklearn.preprocessing import MaxAbsScaler$/;"	kind:namespace	line:16
+MaxAbsScaler	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import MaxAbsScaler$/;"	kind:namespace	line:16
+MaxAbsScaler	../tpot_base.py	/^from sklearn.preprocessing import MaxAbsScaler$/;"	kind:namespace	line:16
+MinMaxScaler	../BernoulliNB.py	/^from sklearn.preprocessing import MinMaxScaler$/;"	kind:namespace	line:15
+MinMaxScaler	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import MinMaxScaler$/;"	kind:namespace	line:15
+MinMaxScaler	../tpot_base.py	/^from sklearn.preprocessing import MinMaxScaler$/;"	kind:namespace	line:15
+NMF	../BernoulliNB.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:29
+NMF	../evaluate_sklearn_classifier.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:29
+NMF	../tpot_base.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:28
+OneVsRestClassifier	../BernoulliNB.py	/^from sklearn.multiclass import OneVsRestClassifier$/;"	kind:namespace	line:28
+OneVsRestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.multiclass import OneVsRestClassifier$/;"	kind:namespace	line:28
+OneVsRestClassifier	../tpot_base.py	/^from sklearn.multiclass import OneVsRestClassifier$/;"	kind:namespace	line:27
+PCA	../BernoulliNB.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:29
+PCA	../evaluate_sklearn_classifier.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:29
+PCA	../tpot_base.py	/^from sklearn.decomposition import PCA, NMF$/;"	kind:namespace	line:28
+Pipeline	../BernoulliNB.py	/^from sklearn.pipeline import Pipeline$/;"	kind:namespace	line:11
 Pipeline	../evaluate_sklearn_classifier.py	/^from sklearn.pipeline import Pipeline$/;"	kind:namespace	line:11
-RandomForestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:19
+Pipeline	../tpot_base.py	/^from sklearn.pipeline import Pipeline$/;"	kind:namespace	line:11
+RandomForestClassifier	../BernoulliNB.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:23
+RandomForestClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:23
+RandomForestClassifier	../tpot_base.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:22
+RobustScaler	../BernoulliNB.py	/^from sklearn.preprocessing import RobustScaler$/;"	kind:namespace	line:13
 RobustScaler	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import RobustScaler$/;"	kind:namespace	line:13
+RobustScaler	../tpot_base.py	/^from sklearn.preprocessing import RobustScaler$/;"	kind:namespace	line:13
+SGDClassifier	../BernoulliNB.py	/^from sklearn.linear_model import SGDClassifier$/;"	kind:namespace	line:9
 SGDClassifier	../evaluate_sklearn_classifier.py	/^from sklearn.linear_model import SGDClassifier$/;"	kind:namespace	line:9
-SVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:18
+SGDClassifier	../tpot_base.py	/^from sklearn.linear_model import SGDClassifier$/;"	kind:namespace	line:9
+SVC	../BernoulliNB.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:21
+SVC	../evaluate_sklearn_classifier.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:21
+SVC	../tpot_base.py	/^from sklearn.svm import SVC$/;"	kind:namespace	line:21
+SelectKBest	../BernoulliNB.py	/^from sklearn.feature_selection import SelectKBest$/;"	kind:namespace	line:12
 SelectKBest	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import SelectKBest$/;"	kind:namespace	line:12
-StratifiedKFold	../evaluate_sklearn_classifier.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:20
-X	../evaluate_sklearn_classifier.py	/^X = train.values[:,3:]$/;"	kind:variable	line:30
-X_score	../evaluate_sklearn_classifier.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:33
-auc	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-best_parameters	../evaluate_sklearn_classifier.py	/^best_parameters = grid_search.best_estimator_.get_params()$/;"	kind:variable	line:100
-chi2	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import chi2$/;"	kind:namespace	line:21
-class_weight	../evaluate_sklearn_classifier.py	/^                class_weight='balanced'),$/;"	kind:variable	line:55
-classification_report	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-confusion_matrix	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-cv	../evaluate_sklearn_classifier.py	/^    cv=3$/;"	kind:variable	line:86
+SelectKBest	../tpot_base.py	/^from sklearn.feature_selection import SelectKBest$/;"	kind:namespace	line:12
+StandardScaler	../BernoulliNB.py	/^from sklearn.preprocessing import StandardScaler$/;"	kind:namespace	line:14
+StandardScaler	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import StandardScaler$/;"	kind:namespace	line:14
+StandardScaler	../tpot_base.py	/^from sklearn.preprocessing import StandardScaler$/;"	kind:namespace	line:14
+StandardScaler	../tpot_exported_pipeline-1.py	/^from sklearn.preprocessing import StandardScaler$/;"	kind:namespace	line:6
+StratifiedKFold	../BernoulliNB.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:24
+StratifiedKFold	../evaluate_sklearn_classifier.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:24
+StratifiedKFold	../tpot_base.py	/^from sklearn.cross_validation import StratifiedKFold$/;"	kind:namespace	line:23
+TPOTClassifier	../tpot_base.py	/^from tpot import TPOTClassifier$/;"	kind:namespace	line:44
+X	../BernoulliNB.py	/^X = train.values[:,3:]$/;"	kind:variable	line:37
+X	../evaluate_sklearn_classifier.py	/^X = train.values[:,3:]$/;"	kind:variable	line:37
+X	../tpot_base.py	/^X = train.values[:,3:]$/;"	kind:variable	line:35
+X_score	../BernoulliNB.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:40
+X_score	../evaluate_sklearn_classifier.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:40
+X_score	../tpot_base.py	/^X_score = score.values[:,2:]$/;"	kind:variable	line:38
+auc	../BernoulliNB.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+auc	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+auc	../tpot_base.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+best_parameters	../BernoulliNB.py	/^best_parameters = grid_search.best_estimator_.get_params()$/;"	kind:variable	line:80
+best_parameters	../evaluate_sklearn_classifier.py	/^best_parameters = grid_search.best_estimator_.get_params()$/;"	kind:variable	line:79
+chi2	../BernoulliNB.py	/^from sklearn.feature_selection import chi2, f_classif$/;"	kind:namespace	line:25
+chi2	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import chi2, f_classif$/;"	kind:namespace	line:25
+chi2	../tpot_base.py	/^from sklearn.feature_selection import chi2$/;"	kind:namespace	line:24
+classification_report	../BernoulliNB.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+classification_report	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+classification_report	../tpot_base.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+confusion_matrix	../BernoulliNB.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+confusion_matrix	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+confusion_matrix	../tpot_base.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+cv	../BernoulliNB.py	/^    cv=3,$/;"	kind:variable	line:65
+cv	../evaluate_sklearn_classifier.py	/^    cv=3,$/;"	kind:variable	line:64
 evaluate_sklearn_classifier.py	../evaluate_sklearn_classifier.py	1;"	kind:file	line:1
-f1_score	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import f1_score$/;"	kind:namespace	line:17
-file_name	../evaluate_sklearn_classifier.py	/^file_name = "output\/{0}-{1}.csv".format("results",timestr)$/;"	kind:variable	line:114
-format	../evaluate_sklearn_classifier.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	kind:variable	line:41
-grid_search	../evaluate_sklearn_classifier.py	/^grid_search = GridSearchCV($/;"	kind:variable	line:81
-i	../evaluate_sklearn_classifier.py	/^    i=0$/;"	kind:variable	line:117
-kernel	../evaluate_sklearn_classifier.py	/^                kernel = 'poly',$/;"	kind:variable	line:53
+exported_pipeline	../tpot_exported_pipeline-1.py	/^exported_pipeline = make_pipeline($/;"	kind:variable	line:14
+f1_score	../BernoulliNB.py	/^from sklearn.metrics import f1_score$/;"	kind:namespace	line:20
+f1_score	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import f1_score$/;"	kind:namespace	line:20
+f1_score	../tpot_base.py	/^from sklearn.metrics import f1_score$/;"	kind:namespace	line:20
+f_classif	../BernoulliNB.py	/^from sklearn.feature_selection import chi2, f_classif$/;"	kind:namespace	line:25
+f_classif	../evaluate_sklearn_classifier.py	/^from sklearn.feature_selection import chi2, f_classif$/;"	kind:namespace	line:25
+features	../tpot_exported_pipeline-1.py	/^features = np.delete(tpot_data.view(np.float64).reshape(tpot_data.size, -1), tpot_data.dtype.names.index('class'), axis=1)$/;"	kind:variable	line:10
+file_name	../BernoulliNB.py	/^file_name = "output\/{0}-{1}.csv".format("sklearn",timestr)$/;"	kind:variable	line:93
+file_name	../evaluate_sklearn_classifier.py	/^file_name = "output\/{0}-{1}.csv".format("sklearn",timestr)$/;"	kind:variable	line:92
+file_name	../tpot_base.py	/^file_name = "output\/{0}-{1}.csv".format("pipeline",timestr)$/;"	kind:variable	line:61
+format	../BernoulliNB.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	kind:variable	line:48
+format	../evaluate_sklearn_classifier.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	kind:variable	line:48
+grid_search	../BernoulliNB.py	/^grid_search = GridSearchCV($/;"	kind:variable	line:60
+grid_search	../evaluate_sklearn_classifier.py	/^grid_search = GridSearchCV($/;"	kind:variable	line:59
+i	../BernoulliNB.py	/^    i=0$/;"	kind:variable	line:96
+i	../evaluate_sklearn_classifier.py	/^    i=0$/;"	kind:variable	line:95
+i	../tpot_base.py	/^    i=0$/;"	kind:variable	line:64
+logging	../BernoulliNB.py	/^import logging$/;"	kind:namespace	line:7
 logging	../evaluate_sklearn_classifier.py	/^import logging$/;"	kind:namespace	line:7
-max_samples	../evaluate_sklearn_classifier.py	/^            max_samples=1.0 \/ n_estimators, $/;"	kind:variable	line:56
-n_estimators	../evaluate_sklearn_classifier.py	/^            n_estimators=n_estimators$/;"	kind:variable	line:57
-n_estimators	../evaluate_sklearn_classifier.py	/^n_estimators = 15$/;"	kind:variable	line:46
-n_jobs	../evaluate_sklearn_classifier.py	/^    n_jobs=-1,$/;"	kind:variable	line:84
+logging	../tpot_base.py	/^import logging$/;"	kind:namespace	line:7
+make_pipeline	../tpot_exported_pipeline-1.py	/^from sklearn.pipeline import make_pipeline$/;"	kind:namespace	line:5
+n_jobs	../BernoulliNB.py	/^    n_jobs=-1,$/;"	kind:variable	line:63
+n_jobs	../evaluate_sklearn_classifier.py	/^    n_jobs=-1,$/;"	kind:variable	line:62
+np	../BernoulliNB.py	/^import numpy as np$/;"	kind:namespace	line:4
 np	../evaluate_sklearn_classifier.py	/^import numpy as np$/;"	kind:namespace	line:4
-parameters	../evaluate_sklearn_classifier.py	/^parameters = {$/;"	kind:variable	line:62
+np	../tpot_base.py	/^import numpy as np$/;"	kind:namespace	line:4
+np	../tpot_exported_pipeline-1.py	/^import numpy as np$/;"	kind:namespace	line:1
+parameters	../BernoulliNB.py	/^parameters = {$/;"	kind:variable	line:55
+parameters	../evaluate_sklearn_classifier.py	/^parameters = {$/;"	kind:variable	line:55
+pd	../BernoulliNB.py	/^import pandas as pd$/;"	kind:namespace	line:3
 pd	../evaluate_sklearn_classifier.py	/^import pandas as pd$/;"	kind:namespace	line:3
-pipeline	../evaluate_sklearn_classifier.py	/^pipeline = Pipeline([$/;"	kind:variable	line:47
+pd	../tpot_base.py	/^import pandas as pd$/;"	kind:namespace	line:3
+pipeline	../BernoulliNB.py	/^pipeline = Pipeline([$/;"	kind:variable	line:50
+pipeline	../evaluate_sklearn_classifier.py	/^pipeline = Pipeline([$/;"	kind:variable	line:50
+pipeline_optimizer	../tpot_base.py	/^pipeline_optimizer = TPOTClassifier(generations=8, population_size=50, cv=5, n_jobs=6,$/;"	kind:variable	line:46
+pprint	../BernoulliNB.py	/^from pprint import pprint$/;"	kind:namespace	line:6
 pprint	../evaluate_sklearn_classifier.py	/^from pprint import pprint$/;"	kind:namespace	line:6
-precision_recall_fscore_support	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-predictions	../evaluate_sklearn_classifier.py	/^predictions = grid_search.best_estimator_.predict(X_score)$/;"	kind:variable	line:112
+pprint	../tpot_base.py	/^from pprint import pprint$/;"	kind:namespace	line:6
+precision_recall_fscore_support	../BernoulliNB.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+precision_recall_fscore_support	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+precision_recall_fscore_support	../tpot_base.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+predictions	../BernoulliNB.py	/^predictions = grid_search.best_estimator_.predict(X_score)$/;"	kind:variable	line:91
+predictions	../evaluate_sklearn_classifier.py	/^predictions = grid_search.best_estimator_.predict(X_score)$/;"	kind:variable	line:90
+predictions	../tpot_base.py	/^predictions = pipeline_optimizer.predict(X_score)$/;"	kind:variable	line:59
+print_function	../BernoulliNB.py	/^from __future__ import print_function$/;"	kind:namespace	line:2
 print_function	../evaluate_sklearn_classifier.py	/^from __future__ import print_function$/;"	kind:namespace	line:2
-probability	../evaluate_sklearn_classifier.py	/^                probability=True, $/;"	kind:variable	line:54
-robust_scale	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import robust_scale$/;"	kind:namespace	line:14
-roc_curve	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:16
-score	../evaluate_sklearn_classifier.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:26
-score	../evaluate_sklearn_classifier.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:27
-t0	../evaluate_sklearn_classifier.py	/^t0 = time.time()$/;"	kind:variable	line:93
+print_function	../tpot_base.py	/^from __future__ import print_function$/;"	kind:namespace	line:2
+results	../tpot_exported_pipeline-1.py	/^results = exported_pipeline.predict(testing_features)$/;"	kind:variable	line:20
+robust_scale	../BernoulliNB.py	/^from sklearn.preprocessing import robust_scale$/;"	kind:namespace	line:17
+robust_scale	../evaluate_sklearn_classifier.py	/^from sklearn.preprocessing import robust_scale$/;"	kind:namespace	line:17
+robust_scale	../tpot_base.py	/^from sklearn.preprocessing import robust_scale$/;"	kind:namespace	line:17
+roc_curve	../BernoulliNB.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+roc_curve	../evaluate_sklearn_classifier.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+roc_curve	../tpot_base.py	/^from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_fscore_support, classification_report$/;"	kind:namespace	line:19
+score	../BernoulliNB.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:33
+score	../BernoulliNB.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:34
+score	../evaluate_sklearn_classifier.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:33
+score	../evaluate_sklearn_classifier.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:34
+score	../tpot_base.py	/^score = pd.read_csv("data\/score.csv")$/;"	kind:variable	line:31
+score	../tpot_base.py	/^score = score.fillna(method='ffill')$/;"	kind:variable	line:32
+scoring	../BernoulliNB.py	/^    scoring='f1'$/;"	kind:variable	line:66
+scoring	../evaluate_sklearn_classifier.py	/^    scoring='f1'$/;"	kind:variable	line:65
+t0	../BernoulliNB.py	/^t0 = time.time()$/;"	kind:variable	line:73
+t0	../evaluate_sklearn_classifier.py	/^t0 = time.time()$/;"	kind:variable	line:72
+time	../BernoulliNB.py	/^import time$/;"	kind:namespace	line:5
 time	../evaluate_sklearn_classifier.py	/^import time$/;"	kind:namespace	line:5
-timestr	../evaluate_sklearn_classifier.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:113
-train	../evaluate_sklearn_classifier.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:25
-train	../evaluate_sklearn_classifier.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:28
-train_test_split	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:15
-user_id	../evaluate_sklearn_classifier.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:32
-verbose	../evaluate_sklearn_classifier.py	/^    verbose=1,$/;"	kind:variable	line:85
-y	../evaluate_sklearn_classifier.py	/^y = train.values[:,2]$/;"	kind:variable	line:31
-y_pred	../evaluate_sklearn_classifier.py	/^y_pred = grid_search.best_estimator_.predict(X_test)$/;"	kind:variable	line:105
+time	../tpot_base.py	/^import time$/;"	kind:namespace	line:5
+timestr	../BernoulliNB.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:92
+timestr	../evaluate_sklearn_classifier.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:91
+timestr	../tpot_base.py	/^timestr = time.strftime("%Y%m%d-%H%M%S") $/;"	kind:variable	line:60
+tpot_base.py	../tpot_base.py	1;"	kind:file	line:1
+tpot_data	../tpot_exported_pipeline-1.py	/^tpot_data = np.recfromcsv('PATH\/TO\/DATA\/FILE', delimiter='COLUMN_SEPARATOR', dtype=np.float64)$/;"	kind:variable	line:9
+tpot_exported_pipeline-1.py	../tpot_exported_pipeline-1.py	1;"	kind:file	line:1
+train	../BernoulliNB.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:32
+train	../BernoulliNB.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:35
+train	../evaluate_sklearn_classifier.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:32
+train	../evaluate_sklearn_classifier.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:35
+train	../tpot_base.py	/^train = pd.read_csv("data\/train.csv")$/;"	kind:variable	line:30
+train	../tpot_base.py	/^train = train.fillna(method='ffill')$/;"	kind:variable	line:33
+train_test_split	../BernoulliNB.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:18
+train_test_split	../evaluate_sklearn_classifier.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:18
+train_test_split	../tpot_base.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:18
+train_test_split	../tpot_exported_pipeline-1.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:3
+user_id	../BernoulliNB.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:39
+user_id	../evaluate_sklearn_classifier.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:39
+user_id	../tpot_base.py	/^user_id = score.values[:,1]$/;"	kind:variable	line:37
+verbose	../BernoulliNB.py	/^    verbose=1,$/;"	kind:variable	line:64
+verbose	../evaluate_sklearn_classifier.py	/^    verbose=1,$/;"	kind:variable	line:63
+y	../BernoulliNB.py	/^y = train.values[:,2]$/;"	kind:variable	line:38
+y	../evaluate_sklearn_classifier.py	/^y = train.values[:,2]$/;"	kind:variable	line:38
+y	../tpot_base.py	/^y = train.values[:,2]$/;"	kind:variable	line:36
+y_pred	../BernoulliNB.py	/^y_pred = grid_search.best_estimator_.predict(X_test)$/;"	kind:variable	line:84
+y_pred	../evaluate_sklearn_classifier.py	/^y_pred = grid_search.best_estimator_.predict(X_test)$/;"	kind:variable	line:83
+y_pred	../tpot_base.py	/^y_pred = pipeline_optimizer.predict(X_test)$/;"	kind:variable	line:52

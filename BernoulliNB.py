@@ -29,8 +29,6 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.decomposition import PCA, NMF
 from sklearn.pipeline import FeatureUnion
 from sklearn.naive_bayes import BernoulliNB
-from sklearn.preprocessing import PolynomialFeatures
-from xdg
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
 score = score.fillna(method='ffill')
@@ -56,7 +54,7 @@ pipeline = Pipeline([
 ])
 parameters = {
     'clf__alpha': (7,8,9,10,11),
-    'feature_select__k': (8,9,10,11),
+    'feature_select__k': (8,9,10,11,12,13,14,15,16,17,20,24)
 }
 
 grid_search = GridSearchCV(

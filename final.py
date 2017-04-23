@@ -29,8 +29,6 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.decomposition import PCA, NMF
 from sklearn.pipeline import FeatureUnion
 from sklearn.naive_bayes import BernoulliNB
-from sklearn.preprocessing import PolynomialFeatures
-from xdg
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
 score = score.fillna(method='ffill')
@@ -51,46 +49,22 @@ logging.basicConfig(level=logging.INFO,
 
 pipeline = Pipeline([
     ('scaler', RobustScaler()),
-    ('feature_select', SelectKBest(score_func=f_classif)),
-    ('clf', BernoulliNB(binarize=1,fit_prior=True))
+    ('feature_select', SelectKBest(score_func=f_classif, k=10)),
+    ('clf', BernoulliNB(binarize=1,fit_prior=True,alpha=7))
 ])
-parameters = {
-    'clf__alpha': (7,8,9,10,11),
-    'feature_select__k': (8,9,10,11),
-}
 
-grid_search = GridSearchCV(
-    pipeline,
-    parameters,
-    n_jobs=-1,
-    verbose=1,
-    cv=3,
-    scoring='f1'
-)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.1, random_state=42)
+pipeline.fit(X_train,y_train)
 
-print("Performing grid search...")
-print("pipeline:", [name for name, _ in pipeline.steps])
-print("parameters:")
-pprint(parameters)
-t0 = time.time()
-grid_search.fit(X,y)
-print("done in %0.3fs" % (time.time() - t0))
-print()
-
-print("Best score: %0.3f" % grid_search.best_score_)
-print("Best parameters set:")
-best_parameters = grid_search.best_estimator_.get_params()
-for param_name in sorted(parameters.keys()):
-    print("\t%s: %r" % (param_name, best_parameters[param_name]))
-
-y_pred = grid_search.best_estimator_.predict(X_test)
+y_pred = pipeline.predict(X_test)
 precision, recall, fbeta_score, support = precision_recall_fscore_support(
     y_true=y_test, y_pred=y_pred, labels=1, average='binary'
 )
 print(fbeta_score)
 pprint(confusion_matrix(y_test,y_pred))
 
-predictions = grid_search.best_estimator_.predict(X_score)
+pipeline.fit(X,y)
+predictions = pipeline.predict(X_score)
 timestr = time.strftime("%Y%m%d-%H%M%S") 
 file_name = "output/{0}-{1}.csv".format("sklearn",timestr)
 with open(file_name, 'w') as csvfile:
