@@ -70,7 +70,7 @@ pprint(gsearch1.best_score_)
 #%%
 xgb1 = XGBClassifier(
  learning_rate =0.01,
- n_estimators=50000,
+ n_estimators=5000,
  max_depth=2,
  min_child_weight=6,
  gamma=0,
@@ -81,7 +81,7 @@ xgb1 = XGBClassifier(
  scale_pos_weight=15,
  reg_alpha=0.0001,
  reg_lambda=1,
- seed=42)
+ seed=27)
 score_predictions = modelfit(xgb1, train, score, predictors, __target__)
 #%%
 timestr = time.strftime("%Y%m%d-%H%M%S") 
