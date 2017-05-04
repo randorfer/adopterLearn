@@ -26,7 +26,7 @@ __target__ = 'adopter'
 __id__ = 'user_id'
 train = pd.read_csv("data/train.csv")
 score = pd.read_csv("data/score.csv")
-def modelfit(alg, dtrain, score, predictors, target, useTrainCV=True, cv_folds=5, early_stopping_rounds=50):
+def modelfit(alg, dtrain, score, predictors, target, useTrainCV=True, cv_folds=3, early_stopping_rounds=50):
     
     if useTrainCV:
         xgb_param = alg.get_xgb_params()
@@ -76,13 +76,15 @@ xgb1 = XGBClassifier(
  min_child_weight=6,
  objective= 'binary:logistic',
  nthread=4,
- scale_pos_weight=15,
+ scale_pos_weight=14,
  seed=27
 )
-score_predictions,alg = modelfit(xgb1, train, score, predictors, __target__)
+score_predictions,alg = modelfit(xgb1, train, score, predictors, __target__, cv_folds=5)
+#%%
 feat_imp = pd.Series(alg.booster().get_fscore()).sort_values(ascending=False)
 feat_imp.plot(kind='bar', title='Feature Importances')
 plt.ylabel('Feature Importance Score')
+plt.show()
 #%%
 timestr = time.strftime("%Y%m%d-%H%M%S") 
 file_name = "output/{0}-{1}.csv".format("xgboost",timestr)
